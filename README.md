@@ -9,5 +9,5 @@ Le reti sono state addrestrate accedendo da remoto alle risorse fornite dalla pi
 Il dataset utilizzato è quello a cui fa riferimento l'articolo di Zhou & Troyanskaya ed è scaricabile al seguente link: <a href="https://www.princeton.edu/~jzthree/datasets/ICML2014/" target="_blank">ICML2014</a>
 
 Durante la realizzazione dell'elaborato sono stati impiegati i seguenti dataset:
-- 'CullPDB+5916filtered.npy' per l'addestramento
-- 'CB513+split1.npy' per la fase di testing 
+- *CullPDB+5916filtered.npy* per l'addestramento
+- *CB513+split1.npy* per la fase di testing 
