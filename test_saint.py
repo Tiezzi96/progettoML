@@ -1,5 +1,3 @@
-## cb6133 dataset link: http://www.princeton.edu/~jzthree/datasets/ICML2014/
-## cb513 dataset link: http://www.princeton.edu/~jzthree/datasets/ICML2014/
 CUDA_VISIBLE_DEVICES=0
 
 train_dataset_dir = "psp.npy.gz"
@@ -173,11 +171,7 @@ class StepDecay():
     alpha = self.initAlpha * (self.factor ** exp)
     return float(alpha)
 
-# end utility.py
-
-
-# attention module tools.py
-
+# Attention #
 
 class WeightedSumLayer(Layer):
     def __init__(self, **kwargs):
