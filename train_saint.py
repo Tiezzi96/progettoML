@@ -1,7 +1,4 @@
-# config_train
-
-## cb6133 dataset link: http://www.princeton.edu/~jzthree/datasets/ICML2014/
-## cb513 dataset link: http://www.princeton.edu/~jzthree/datasets/ICML2014/
+## train file ##
 '''
 # CUDA_VISIBLE_DEVICES=0
 import tensorflow.compat.v1 as tf
@@ -16,10 +13,6 @@ to_train = True #False
 lr=0.0005
 conv_layer_dropout_rate = 0.2
 dense_layer_dropout_rate = 0.5
-
-# end config_train
-
-# utility.py
 
 import tensorflow as tf
 import gzip
@@ -114,11 +107,6 @@ class StepDecayStepDecay():
     alpha = self.initAlpha * (self.factor ** exp)
     return float(alpha)
 '''
-# end utility.py
-
-
-# attention module tools.py
-
 
 class WeightedSumLayer(Layer):
 
@@ -203,10 +191,6 @@ def attention_module(x, pos_ids=None, drop_rate=.1):
   x = BatchNormalization()(x)
   return x
 
-# end attention module tools.py
-
-
-# metric.py
 def make_confusion_matrix(yt, yp):
     fig = plt.figure()
     #matrix = confusion_matrix(yt, yp, normalize='true')
@@ -301,9 +285,6 @@ def plot_graph(history):
     plt.savefig("loss.png")
     #plt.show()
 
-# end metric.py
-
-# model.py
 
 def inceptionBlock(x):
   x = BatchNormalization()(x)
@@ -385,11 +366,6 @@ def generate_model():
 
   model = Model([pssm_input, seq_input, pos_ids], main_output)
   return model
-
-# end model.py
-
-
-
 
 ###................. load and process CB5916 dataset for training .............###
 
@@ -476,7 +452,7 @@ for i in range(len(lengths_train)):
 
 
 '''
-###............... load and process CB513 to validate ..............###
+### load and process CB513 to validate ###
 
 cb513 = load_gz("CB513.npy.gz")
 cb513 = np.reshape(cb513, (514, 700, 57))
@@ -516,10 +492,10 @@ print("weight_mask_cb513 shape : "+str(weight_mask_cb513.shape))
 print("weight_mask_cb513: "+str(weight_mask_cb513[0]))
 '''
 
-###................ generate the model...........###
+### generate the model ###
 model = generate_model()
 
-###............. generate necessary callbacks ..........###
+### generate necessary callbacks ###
 
 class CollectOutputAndTarget(tf.keras.callbacks.Callback):
 
@@ -566,7 +542,7 @@ from keras.utils.vis_utils import plot_model
 model.summary()
 plot_model(model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
         
-###........... train ...............###
+### train ###
 
 '''
 history = model.fit(x=[traindata, cb6133_protein_one_hot_with_noseq, positions_seq], y=trainlabel,
