@@ -16,4 +16,5 @@ Durante la realizzazione dell'elaborato sono stati impiegati i seguenti dataset:
 
 
 # Bibliografia
-<a href="doc:introduction" target="_blank">Introduction</a>
+<a href="https://academic.oup.com/bioinformatics/article/36/17/4599/5841663" target="_blank">SAINT Article</a>
+<a href="https://www.ijcai.org/Abstract/16/364" target="_blank">Protein Secondary Structure Prediction Using Cascaded Convolutional and Recurrent Neural Networks</a>
