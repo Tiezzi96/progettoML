@@ -6,10 +6,10 @@ tf.disable_v2_behavior()
 '''
 
 train_dataset_dir = "psp.npy.gz"
-best_model_file = './saint_pssp.h5'
+best_model_file = './saint_model.h5'
 cb513_dataset_dir = "CB513.npy.gz"
 
-to_train = True #False
+to_train = True 
 lr=0.0005
 conv_layer_dropout_rate = 0.2
 dense_layer_dropout_rate = 0.5
