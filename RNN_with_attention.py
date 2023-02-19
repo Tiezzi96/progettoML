@@ -657,6 +657,7 @@ mc = ModelCheckpoint('best_model.h5', monitor='val_loss', mode='min', save_best_
 cb513_pos = np.array(range(700))
 cb513_pos = np.repeat([cb513_pos], 514, axis=0)
 
+### Testing del modello ###
 
 saved_model = load_model('best_model.h5', custom_objects={"Q8_accuracy" : Q8_accuracy, "LayerNormalization": LayerNormalization, "WeightedSumLayer":WeightedSumLayer, "backend": backend, "shape_list": shape_list})
 pred = saved_model.predict([X_test[:, :, 0:21], X_test[:, :, 21:42], cb513_pos])
