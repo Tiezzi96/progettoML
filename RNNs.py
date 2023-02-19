@@ -35,7 +35,6 @@ from keras.initializers import Zeros
 
 
 
-
 def load_gz(path):
   f = gzip.open(path, 'rb')
   return np.load(f)
