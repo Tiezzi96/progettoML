@@ -11,4 +11,4 @@ Il dataset utilizzato è quello a cui fa riferimento l'articolo di Zhou & Troyan
 Durante la realizzazione dell'elaborato sono stati impiegati i seguenti dataset:
 - *CullPDB+5916filtered.npy* per l'addestramento
 - *CB513+split1.npy* per la fase di testing 
-![alt text](https://github.com/Tiezzi96/progettoML/blob/main/?raw=true)
+![alt text](https://github.com/Tiezzi96/progettoML/blob/main/PSL_protein_structure.it_IT.x512.png?raw=true)
