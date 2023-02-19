@@ -12,10 +12,6 @@ dense_layer_dropout_rate = 0.5
 evaluate_on_cb513 = True
 show_F1score_cb513 = True
 
-# end config
-
-# utility.py
-
 from re import X
 import tensorflow as tf
 import gzip
@@ -203,9 +199,6 @@ def shape_list(x):
     tmp[0] = -1
     return tmp
 
-# end attention module tools.py
-
-# precision_recall_F1score_utils.py
 def tp_fp_fn_counter(predicted_pss, true_pss, lengths):
   pred_dict = {}
   secondary_labels = ['L', 'B', 'E', 'G', 'I', 'H', 'S', 'T']
@@ -243,10 +236,6 @@ def amino_acid_wise_precision_recall_F1(predicted_pss, true_pss, lengths):
 
   return prec_recall_dict, tp_fp_fn_dict
 
-# end precision_recall_F1score_utils.py
-
-# metrics.py
-
 
 def truncated_accuracy(y_true, y_predict):
   mask = K.sum(y_true, axis=2)
@@ -265,10 +254,6 @@ def Q8_accuracy(y_true, y_pred):
   print (K.cast(K.equal(tf.boolean_mask(y, mask), tf.boolean_mask(y_, mask)), K.floatx()))
   return K.cast(K.equal(tf.boolean_mask(y, mask), tf.boolean_mask(y_, mask)), K.floatx())
 
-
-# end metrics.py
-
-# evaluate.py
 
 ###................ load the model...........###
 if load_saved_model:
@@ -341,4 +326,3 @@ if evaluate_on_cb513 or show_F1score_cb513:
     pprint(precision_recall_F1_dict[1])
     print('\n\n')
 
-# end evaluate.py
