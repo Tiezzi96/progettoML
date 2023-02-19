@@ -4,3 +4,6 @@ Il progetto è realizzato come elaborato finale del corso di Machine Learning pr
 - convolutional recurrent neural network
 
 Le reti sono state addrestrate accedendo da remoto alle risorse fornite dalla piattaforma Google Colab.
+
+## Dataset
+Il dataset utilizzato è quello a cui fa riferimento l'articolo di Zhou & Troyanskaya ed è scaricabile al seguente link: <a href="https://www.princeton.edu/~jzthree/datasets/ICML2014/" target="_blank">ICML2014</a>
