@@ -435,7 +435,7 @@ def generate_model():
     model = Model((input_1, input_2), out_1)
     return model
     
-'''
+
 model=generate_model()
 model.summary()
 
@@ -444,14 +444,16 @@ model.compile(optimizer="nadam", loss="categorical_crossentropy", metrics=[Q8_ac
 mc = ModelCheckpoint('best_model.h5', monitor='val_loss', mode='min', save_best_only=True, verbose= 1)
 es = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=50)
 
-# saved_model = load_model('best_model.h5', custom_objects={"Q8_accuracy" : Q8_accuracy})
-#pred = saved_model.predict([X_test[:, :, 0:21], X_test[:, :, 21:42]])
-#one_hot_predictions = probabilities_to_onehot(pred)
-#tf.compat.v1.disable_eager_execution()
-#acc = Q8_accuracy(s_struct_test, pred)
-#print ('accuracy on cb513:', tf.compat.v1.Session().run(acc).mean())
-#print(accuracy_Q8(s_struct_test, pred))
-
+### Testing del modello ###
+'''
+saved_model = load_model('best_model.h5', custom_objects={"Q8_accuracy" : Q8_accuracy})
+pred = saved_model.predict([X_test[:, :, 0:21], X_test[:, :, 21:42]])
+one_hot_predictions = probabilities_to_onehot(pred)
+tf.compat.v1.disable_eager_execution()
+acc = Q8_accuracy(s_struct_test, pred)
+print ('accuracy on cb513:', tf.compat.v1.Session().run(acc).mean())
+print(accuracy_Q8(s_struct_test, pred))
+'''
 ### Fit del modello ###
 
 fit = model.fit(x=[X_train[:, :, 0:21], X_train[:, :, 21:42]], y=s_struct_train,
@@ -481,4 +483,3 @@ print(make_confusion_matrix(yt, yp))
 #plot_graph(fit)
 #print(K.get_value(Q8_accuracy(s_struct_test, y_pre)))
 
-'''
